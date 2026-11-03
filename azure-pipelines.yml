@@ -39,19 +39,19 @@ stages:
           $(tag)
 - stage: Deploy
   displayName: Deploy
-  Jobs:
-     job: Deploy
+  jobs:
+   - job: Deploy
      displayName: Deploy
      steps:
      - task: AzureRmWebAppDeployment@3
        inputs:
-        azureSubscription: 'Azure Subscription 1'
+        azureSubscription: 'Azure subscription 1(7c2f1abe-b0ed-4ce4-9d60-e1bc0465507b)'
         appType: 'applinux'
-        webAppName: 'akdvl'
+        WebAppName: 'akdvl'
         DockerNamespace: '$(containerRegistry)'
         DockerRepository: '$(imageRepository)'
-        DockerImageTag: $(Build.BuildId)
-        WebAppUri: WebAppUri
+        DockerImageTag: '$(Build.BuildId)'
+        WebAppUri: 'WebAppUri'
         TakeAppOfflineFlag: true
         UseWebDeploy: true
         RenameFilesFlag: true
