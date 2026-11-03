@@ -37,3 +37,21 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+- stage: Deploy
+  displayName: Deploy
+  Jobs:
+     job: Deploy
+     displayName: Deploy
+     steps:
+     - task: AzureRmWebAppDeployment@3
+       inputs:
+        azureSubscription: 'Azure Subscription 1'
+        appType: 'applinux'
+        webAppName: 'akdvl'
+        DockerNamespace: '$(containerRegistry)'
+        DockerRepository: '$(imageRepository)'
+        DockerImageTag: $(Build.BuildId)
+        WebAppUri: WebAppUri
+        TakeAppOfflineFlag: true
+        UseWebDeploy: true
+        RenameFilesFlag: true
