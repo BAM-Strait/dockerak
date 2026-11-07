@@ -45,13 +45,10 @@ stages:
      steps:
      - task: AzureRmWebAppDeployment@3
        inputs:
-        azureSubscription: 'Azure subscription 1(7c2f1abe-b0ed-4ce4-9d60-e1bc0465507b)'
-        appType: 'applinux'
-        WebAppName: 'akdvl'
-        DockerNamespace: '$(containerRegistry)'
-        DockerRepository: '$(imageRepository)'
-        DockerImageTag: '$(Build.BuildId)'
-        WebAppUri: 'WebAppUri'
-        TakeAppOfflineFlag: true
-        UseWebDeploy: true
-        RenameFilesFlag: true
+         azureSubscription: 'Azure subscription 1(7c2f1abe-b0ed-4ce4-9d60-e1bc0465507b)'
+         appType: 'applinux'
+         WebAppName: 'dockerak'
+         DockerNamespace: '$(containerRegistry)'
+         DockerRepository: '$(imageRepository)'
+         DockerImageTag: '$(Build.BuildId)'
+         WebAppUri: 'WebAppUri'
